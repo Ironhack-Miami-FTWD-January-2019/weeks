@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js">
+<!--<![endif]-->
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title></title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="">
+</head>
+
+<body>
+    call, apply & bind
+
+    <script>
+
+        //fetch, axios.get, jQuery $.get, async await... are all just promises  
+        var promise1 = new Promise(function (resolve, reject) {
+            setTimeout(function () { //Going to database or api and getting data
+                                    //, all your freinds pics
+                //return 'hi'
+                //resolve('LOOK AT YOUR AWESEOM FRIENDS!')
+                //reject('boohoo no pics');
+            }, 3000);
+        });
+
+        promise1
+            .then(function (value) { //now i got my friends pics so i can like them 
+                console.log('we got awesome pics for you, check them out',value);
+                // expected output: "foo"
+            })
+            .catch(function(err){
+                console.log('im sry user', err)
+
+        })
+
+        console.log(promise1);
+// expected output: [object Promise]
+
+
+
+        /*
+
+        var counter = 1;
+        var callbackFunction = function () {
+            console.log(counter);
+            console.log('still in play')
+            counter += 1;
+            setTimeout(callbackFunction, 1000);
+        }
+
+
+        //var timeoutId = setTimeout(callbackFunction, 1000);
+        /*
+
+        var timeoutId = setInterval(function () {
+            console.log("Hey there, Ironhackers!");
+        }, 500);
+
+        /*
+        var fer = { name: 'Fer', coder: true };
+        var harry = { name: 'Harry', coder: true };
+
+        var niko = {name: 'niko', confused:'absolutely'}
+
+        var hi = function (name) {
+            console.log(name, ' says this is passing an argument the traditional way ')
+            console.log('Whatsup, ' + this.name);
+        };
+
+        var bye = function () {
+            console.log('Laters, ' + this.name);
+        };
+
+        //hi();   // Error
+
+        //hi.call(fer);
+        //bye.call(harry);
+
+        //hi.call(niko, 'squirrel')
+        //hi.apply(niko, ['squirrel'])
+
+        let goodBye = bye.bind(niko)
+        //let goodBye = bye.bind(harry)
+
+        goodBye()
+
+        niko.name = 'squirrel'
+        goodBye()
+
+        var Cheese = function (typeOfCheese) {
+            var cheeseType = typeOfCheese;
+            return cheeseType;
+        }
+
+        cheddar = new Cheese("cheddar");
+        /*
+        var value = 500;
+        var obj = {
+            value: 0,
+            increment: function () {
+                this.value++;
+                //value = 'in here'
+
+                //innerFunction(); // Function invocation pattern
+            },
+            innerFunction : function () {
+                console.log(this.value);
+            }
+
+        }
+        obj.increment(); // Method invocation pattern
+
+
+        /*
+                function greet(l1, l2, l3) {
+                    console.log(this)
+                    alert(
+                        `Hello, my name is ${this.name} and I know ${l1}, ${l2}, and ${l3}`
+                    )
+                }
+
+                const user = {
+                    name: 'Tyler',
+                    age: 27,
+                }
+                const user2 = {
+                    name: 'Picachu',
+                    age:40000
+                }
+                const languages = ['JavaScript', 'Ruby', 'Python']
+
+                const newFn = greet.bind(user, languages[0], languages[1], languages[2])
+                //newFn() // alerts "Hello, my name is Tyler and I know JavaScript, Ruby, and Python"
+
+                const diffFun = greet.bind(user2)
+
+                /*
+
+                function greet(l1, l2, l3) {
+                    alert(
+                        `Hello, my name is ${this.name} and I know ${l1}, ${l2}, and ${l3}`
+                    )
+                }
+
+                const user = {
+                    name: 'Tyler',
+                    age: 27,
+                }
+
+                const languages = ['JavaScript', 'Ruby', 'Python']
+
+                //greet.call(user, languages[0], languages[1], languages[2])
+                greet.apply(user, languages)
+
+                /*
+                function greet() {
+                    //change this?
+                    alert(`Hello, my name is ${this.name}`)
+                }
+
+                const user = {
+                    name: 'Tyler',
+                    age: 27,
+                }
+
+                greet.call(user)
+
+
+                /*const user = {
+                    name: 'Tyler',
+                    age: 27,
+                    greet() {
+                        alert(`Hello, my name is ${this.name}`)
+                    },
+                    mother: {
+                        name: 'Stacey',
+                        greet() {
+                            alert(`Hello, my name is ${this.name}`)
+                        }
+                    }
+                }
+
+                user.greet()
+                user.mother.greet()*/
+
+
+
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
