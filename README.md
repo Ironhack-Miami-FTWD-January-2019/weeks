@@ -1,4 +1,4 @@
-```committing to github with partners ```
+###committing to github with partners
 
 git add .
 git commit -m "something"
